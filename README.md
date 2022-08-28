@@ -11,7 +11,7 @@ env\scripts\active.bat
 
 ## como roda o projeto
 ````
-export FLASK_APP=app.py 
-export FLASK_ENV=development 
+set FLASK_ENV=development
+set FLASK_APP=app.py
 flask run
 ````
