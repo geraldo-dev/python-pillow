@@ -1,3 +1,4 @@
+from hashlib import new
 import os
 from flask import Flask, render_template, request
 from datetime import datetime
@@ -10,13 +11,12 @@ def home():
     if request.method == 'POST':
         img = request.files['img']
         options = request.form['options']
-        name = request.form['name']
         
         if img and (options  != 'escolha'):
             new_image = Image.open(img, 'r')
+            name = str(img.filename.split('.')[0])
 
             if options == 'png':
-                
                 new_image.save(name + ".png")
             elif options == 'jpg':
                 new_image.save(name + ".jpg")
@@ -26,11 +26,10 @@ def home():
                 msg = 'invalid format'
                 return render_template('index.html', msg=msg)
                 
-        msg = 'successfully converted'
-        return render_template('index.html', msg=msg)
+        success = 'successfully converted'
+        return render_template('index.html', success=success)
     
-    success = "choose image and format"
-    return render_template('index.html', success=success)
+    return render_template('index.html')
 
 
 if __name__=='__main__':
