@@ -15,13 +15,15 @@ def home():
         if img and (options  != 'escolha'):
             new_image = Image.open(img, 'r')
             name = str(img.filename.split('.')[0])
+            #folde name
+            folde = "C:\\Users\\Dell\\Documents\\image-converter\\new_image\\"
 
             if options == 'png':
-                new_image.save(name + ".png")
+                new_image.save(folde + name + ".png")
             elif options == 'jpg':
-                new_image.save(name + ".jpg")
+                new_image.save(folde + name + ".jpg")
             elif options == 'jpeg':
-                new_image.save(name + ".jpeg")
+                new_image.save(folde + name + ".jpeg")
             else:
                 msg = 'invalid format'
                 return render_template('index.html', msg=msg)
