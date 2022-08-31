@@ -15,8 +15,8 @@ def home():
         if img and (options  != 'escolha'):
             new_image = Image.open(img, 'r')
             name = str(img.filename.split('.')[0])
-            #folde name
-            folde = "C:\\Users\\Dell\\Documents\\image-converter\\new_image\\"
+            
+            folde = "new_image\\"
 
             if options == 'png':
                 new_image.save(folde + name + ".png")
